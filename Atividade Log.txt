@@ -1,0 +1,22 @@
+import org.apache.log4j.Logger;
+
+public class ExemploLog4j {
+    // Cria uma instância do Logger
+    private static final Logger logger = Logger.getLogger(ExemploLog4j.class);
+
+    public static void main(String[] args) {
+        logger.info("Iniciou o programa");
+
+        try {
+            Thread.sleep(5000);
+            int x = 4 / 0;
+            logger.info("Resultado da divisão é: " + x);
+        } catch (ArithmeticException e) {
+            logger.error("Erro aritmético: ", e);
+        } catch (InterruptedException e) {
+            logger.error("Erro de thread", e);
+        }
+
+        logger.info("Finalizou o programa!");
+    }
+}
